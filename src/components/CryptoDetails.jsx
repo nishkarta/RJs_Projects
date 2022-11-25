@@ -1,9 +1,9 @@
-import * as React from 'react'
+import { CheckOutlined, DollarCircleOutlined, ExclamationCircleOutlined, FundOutlined, MoneyCollectOutlined, NumberOutlined, StopOutlined, ThunderboltOutlined, TrophyOutlined } from '@ant-design/icons'
+import { Col, Row, Select, Typography } from 'antd'
 import HTMLReactParser from 'html-react-parser'
-import { useParams } from 'react-router-dom'
 import millify from 'millify'
-import { Col, Row, Typography, Select } from 'antd'
-import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
+import * as React from 'react'
+import { useParams } from 'react-router-dom'
 
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi'
 import LineChart from './LineChart'
@@ -14,7 +14,7 @@ const { Option } = Select
 const CryptoDetails = () => {
     const { coinId } = useParams()
     const [timePeriod, setTimePeriod] = React.useState('7d')
-    const { data, isFetching } = useGetCryptoDetailsQuery(coinId)
+    const { data } = useGetCryptoDetailsQuery(coinId)
     const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timePeriod })
     const cryptoDetails = data?.data?.coin;
     // console.log(data)
